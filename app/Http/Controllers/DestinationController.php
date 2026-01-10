@@ -27,28 +27,27 @@ class DestinationController extends Controller
     /**
      * STORE - Save Data
      */
-    public function store(Request $request)
-    {
-        // ✅ VALIDASI
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'location' => 'required|string|max:255',
-            'description' => 'required|string',
-            'image' => 'nullable|string', // sementara string dulu
-        ]);
+   public function store(Request $request)
+{
+    $request->validate([
+        'name' => 'required',
+        'location' => 'required',
+        'description' => 'required',
+        'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+    ]);
 
-        // ✅ SIMPAN DATA (AMAN)
-        Destination::create([
-            'name' => $request->name,
-            'location' => $request->location,
-            'description' => $request->description,
-            'image' => $request->image,
-        ]);
+    $imagePath = $request->file('image')->store('destinations', 'public');
 
-        return redirect()
-            ->route('destinations.index')
-            ->with('success', 'Destinasi berhasil ditambahkan');
-    }
+    Destination::create([
+        'name' => $request->name,
+        'location' => $request->location,
+        'description' => $request->description,
+        'image' => $imagePath,
+    ]);
+
+    return redirect()->route('destinations.index')
+        ->with('success', 'Destinasi berhasil ditambahkan');
+}
 
     /**
      * READ - Detail
