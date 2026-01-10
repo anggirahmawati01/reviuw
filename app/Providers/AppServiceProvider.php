@@ -3,7 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Pagination\Paginator as Paginate;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,6 +21,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Paginate::useBootstrapFive();
+        // Pagination Bootstrap 5
+        Paginator::useBootstrapFive();
+
+        // Paksa HTTPS (local + production aman)
+        if (app()->environment(['local', 'production'])) {
+            URL::forceScheme('https');
+        }
     }
 }
