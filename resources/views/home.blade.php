@@ -10,7 +10,7 @@
         </p>
 
         <a href="{{ route('destinations.index') }}"
-           class="btn btn-primary btn-lg mt-4 px-4">
+           class="btn btn-primary btn-lg mt-4 px-4 shadow-sm">
             Lihat Destinasi
         </a>
     </div>
@@ -18,14 +18,15 @@
 
 <!-- CARD SECTION -->
 <div class="container my-5">
-    <div class="row">
+    <div class="row g-4">
 
         <!-- CARD 1 -->
-        <div class="col-md-4 mb-4">
-            <div class="card h-100 shadow-sm">
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm rounded-4">
                 <img src="{{ asset('images/1.png') }}"
-                     class="card-img-top"
+                     class="card-img-top rounded-top-4"
                      height="220"
+                     style="object-fit:cover;"
                      alt="Wisata Alam">
 
                 <div class="card-body text-center">
@@ -34,15 +35,23 @@
                         Pantai, gunung, dan panorama alam terbaik di NTB.
                     </p>
                 </div>
+
+                <div class="card-footer bg-white border-0 text-center pt-0 pb-3">
+                    <a href="{{ route('destinations.index') }}"
+                       class="btn btn-primary btn-sm shadow-sm px-4">
+                        Lihat Destinasi
+                    </a>
+                </div>
             </div>
         </div>
 
         <!-- CARD 2 -->
-        <div class="col-md-4 mb-4">
-            <div class="card h-100 shadow-sm">
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm rounded-4">
                 <img src="{{ asset('images/2.png') }}"
-                     class="card-img-top"
+                     class="card-img-top rounded-top-4"
                      height="220"
+                     style="object-fit:cover;"
                      alt="Budaya Lokal">
 
                 <div class="card-body text-center">
@@ -51,15 +60,23 @@
                         Budaya, tradisi, dan adat khas masyarakat NTB.
                     </p>
                 </div>
+
+                <div class="card-footer bg-white border-0 text-center pt-0 pb-3">
+                    <a href="{{ route('destinations.index') }}"
+                       class="btn btn-primary btn-sm shadow-sm px-4">
+                        Lihat Destinasi
+                    </a>
+                </div>
             </div>
         </div>
 
         <!-- CARD 3 -->
-        <div class="col-md-4 mb-4">
-            <div class="card h-100 shadow-sm">
+        <div class="col-md-4">
+            <div class="card h-100 shadow-sm rounded-4">
                 <img src="{{ asset('images/kuliner-ntb.jpg') }}"
-                     class="card-img-top"
+                     class="card-img-top rounded-top-4"
                      height="220"
+                     style="object-fit:cover;"
                      alt="Kuliner NTB">
 
                 <div class="card-body text-center">
@@ -67,6 +84,13 @@
                     <p class="text-muted mt-2">
                         Aneka kuliner khas NTB yang menggugah selera.
                     </p>
+                </div>
+
+                <div class="card-footer bg-white border-0 text-center pt-0 pb-3">
+                    <a href="{{ route('destinations.index') }}"
+                       class="btn btn-primary btn-sm shadow-sm px-4">
+                        Lihat Destinasi
+                    </a>
                 </div>
             </div>
         </div>

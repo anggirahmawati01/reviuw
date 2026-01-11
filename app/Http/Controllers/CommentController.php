@@ -3,20 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Destination;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-    public function store(Request $request)
+    public function store(Request $request, Destination $destination)
     {
         $request->validate([
-            'destination_id' => 'required|exists:destinations,id',
             'name' => 'required|string|max:100',
-            'comment' => 'required|string',
+            'message' => 'required|string',
         ]);
 
-        Comment::create($request->all());
+        $destination->comments()->create([
+            'name' => $request->name,
+            'message' => $request->message,
+        ]);
 
-        return back()->with('success', 'Komentar berhasil ditambahkan');
+        return redirect()->route('destinations.show', $destination->id)
+                         ->with('success', 'Komentar berhasil ditambahkan');
     }
 }

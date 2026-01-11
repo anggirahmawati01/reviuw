@@ -13,10 +13,10 @@
                  style="max-height:420px; object-fit:cover;">
         </div>
 
-        <!-- INFO DESTINASI + BUTTON -->
+        <!-- INFO DESTINASI -->
         <div class="col-lg-6">
 
-            <!-- BUTTON: Kembali -->
+            <!-- BUTTON KEMBALI -->
             <div class="d-flex justify-content-end gap-2 mb-3">
                 <a href="{{ route('destinations.index') }}"
                    class="btn btn-outline-secondary btn-sm">
@@ -24,14 +24,12 @@
                 </a>
             </div>
 
-            <!-- INFO -->
+            <!-- INFO DESTINASI -->
             <span class="badge bg-warning text-dark mb-2">
                 {{ $destination->location }}
             </span>
 
-            <h2 class="fw-bold mt-2">
-                {{ $destination->name }}
-            </h2>
+            <h2 class="fw-bold mt-2">{{ $destination->name }}</h2>
 
             <p class="text-muted mt-3" style="line-height:1.7">
                 {{ $destination->description }}
@@ -48,17 +46,22 @@
 
             <h5 class="fw-bold mb-4">💬 Komentar Pengunjung</h5>
 
+            <!-- ALERT SUKSES -->
+            @if(session('success'))
+                <div class="alert alert-success mb-3">
+                    {{ session('success') }}
+                </div>
+            @endif
+
             <!-- FORM KOMENTAR -->
             <div class="card mb-4 shadow-sm rounded-4 p-3 border-0">
                 <form action="{{ route('comments.store', $destination->id) }}" method="POST">
                     @csrf
                     <div class="mb-3">
-                        <input type="text" name="name" class="form-control" 
-                               placeholder="Nama Anda" required>
+                        <input type="text" name="name" class="form-control" placeholder="Nama Anda" required>
                     </div>
                     <div class="mb-3">
-                        <textarea name="message" class="form-control" rows="3" 
-                                  placeholder="Tulis komentar..." required></textarea>
+                        <textarea name="message" class="form-control" rows="3" placeholder="Tulis komentar..." required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary shadow-sm">
                         Kirim Komentar

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\CommentController;
 
+// Halaman Home
 Route::get('/', function () {
     return view('home');
 })->name('home');
@@ -12,5 +13,5 @@ Route::get('/', function () {
 Route::resource('destinations', DestinationController::class);
 
 // Komentar Destinasi
-Route::post('/comments', [CommentController::class, 'store'])
+Route::post('/destinations/{destination}/comments', [CommentController::class, 'store'])
     ->name('comments.store');

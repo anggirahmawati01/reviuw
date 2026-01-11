@@ -8,27 +8,20 @@ use Illuminate\Support\Facades\Storage;
 
 class DestinationController extends Controller
 {
-    /**
-     * READ - List Destinations
-     * 🔒 FIX: selalu 8 data (4 ke samping × 2 ke bawah)
-     */
+    // LIST DESTINASI
     public function index()
     {
-        $destinations = Destination::latest()->paginate(8);
+        $destinations = Destination::latest()->paginate(8); // pagination cantik
         return view('destinations.index', compact('destinations'));
     }
 
-    /**
-     * CREATE - Form
-     */
+    // FORM TAMBAH DESTINASI
     public function create()
     {
         return view('destinations.create');
     }
 
-    /**
-     * STORE - Save Data
-     */
+    // SIMPAN DESTINASI BARU
     public function store(Request $request)
     {
         $request->validate([
@@ -47,31 +40,24 @@ class DestinationController extends Controller
             'image' => $imagePath,
         ]);
 
-        return redirect()
-            ->route('destinations.index')
-            ->with('success', 'Destinasi berhasil ditambahkan');
+        return redirect()->route('destinations.index')
+                         ->with('success', 'Destinasi berhasil ditambahkan');
     }
 
-    /**
-     * READ - Detail + Komentar
-     */
+    // DETAIL DESTINASI
     public function show(Destination $destination)
     {
-        $destination->load('comments');
+        $destination->load('comments'); // memuat komentar
         return view('destinations.show', compact('destination'));
     }
 
-    /**
-     * EDIT - Form
-     */
+    // FORM EDIT
     public function edit(Destination $destination)
     {
         return view('destinations.edit', compact('destination'));
     }
 
-    /**
-     * UPDATE - Save Changes
-     */
+    // UPDATE DESTINASI
     public function update(Request $request, Destination $destination)
     {
         $request->validate([
@@ -81,38 +67,30 @@ class DestinationController extends Controller
             'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        $data = $request->only('name', 'location', 'description');
+        $data = $request->only('name','location','description');
 
-        if ($request->hasFile('image')) {
-
-            if ($destination->image) {
+        if($request->hasFile('image')){
+            if($destination->image){
                 Storage::disk('public')->delete($destination->image);
             }
-
-            $data['image'] = $request->file('image')
-                                      ->store('destinations', 'public');
+            $data['image'] = $request->file('image')->store('destinations','public');
         }
 
         $destination->update($data);
 
-        return redirect()
-            ->route('destinations.index')
-            ->with('success', 'Destinasi berhasil diperbarui');
+        return redirect()->route('destinations.index')
+                         ->with('success', 'Destinasi berhasil diperbarui');
     }
 
-    /**
-     * DELETE
-     */
+    // DELETE DESTINASI
     public function destroy(Destination $destination)
     {
-        if ($destination->image) {
+        if($destination->image){
             Storage::disk('public')->delete($destination->image);
         }
-
         $destination->delete();
 
-        return redirect()
-            ->route('destinations.index')
-            ->with('success', 'Destinasi berhasil dihapus');
+        return redirect()->route('destinations.index')
+                         ->with('success', 'Destinasi berhasil dihapus');
     }
 }
