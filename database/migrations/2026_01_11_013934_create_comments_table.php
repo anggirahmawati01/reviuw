@@ -12,13 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('comments', function (Blueprint $table) {
-    $table->id();
-    $table->foreignId('destination_id')->constrained()->onDelete('cascade');
-    $table->string('name');
-    $table->text('comment');
-    $table->timestamps();
-});
-
+            $table->id();
+            $table->foreignId('destination_id')->constrained()->onDelete('cascade');
+            $table->string('name');
+            $table->text('message'); // ubah dari 'comment' menjadi 'message'
+            $table->timestamps();
+        });
     }
 
     /**
