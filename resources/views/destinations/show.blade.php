@@ -16,13 +16,8 @@
         <!-- INFO DESTINASI + BUTTON -->
         <div class="col-lg-6">
 
-            <!-- BUTTONS: Tambah Destinasi + Kembali -->
+            <!-- BUTTON: Kembali -->
             <div class="d-flex justify-content-end gap-2 mb-3">
-                <a href="{{ route('destinations.create') }}"
-                   class="btn btn-primary btn-sm">
-                    + Tambah Destinasi
-                </a>
-
                 <a href="{{ route('destinations.index') }}"
                    class="btn btn-outline-secondary btn-sm">
                     ← Kembali
@@ -51,12 +46,29 @@
     <div class="row">
         <div class="col-lg-8">
 
-            <h5 class="fw-bold mb-4">
-                💬 Komentar Pengunjung
-            </h5>
+            <h5 class="fw-bold mb-4">💬 Komentar Pengunjung</h5>
 
+            <!-- FORM KOMENTAR -->
+            <div class="card mb-4 shadow-sm rounded-4 p-3 border-0">
+                <form action="{{ route('comments.store', $destination->id) }}" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                        <input type="text" name="name" class="form-control" 
+                               placeholder="Nama Anda" required>
+                    </div>
+                    <div class="mb-3">
+                        <textarea name="message" class="form-control" rows="3" 
+                                  placeholder="Tulis komentar..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary shadow-sm">
+                        Kirim Komentar
+                    </button>
+                </form>
+            </div>
+
+            <!-- DAFTAR KOMENTAR -->
             @forelse ($destination->comments as $comment)
-                <div class="card mb-3 border-0 shadow-sm">
+                <div class="card mb-3 border-0 shadow-sm rounded-4">
                     <div class="card-body">
                         <div class="d-flex align-items-center mb-2">
                             <!-- Avatar Huruf Pertama -->
