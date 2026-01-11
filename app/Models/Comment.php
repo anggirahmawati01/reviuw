@@ -5,20 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Destination extends Model
+class Comment extends Model
 {
     use HasFactory;
 
     protected $fillable = [
+        'destination_id',
         'name',
-        'location',
-        'description',
-        'image',
+        'comment',
     ];
 
-    // ✅ RELASI KE COMMENT
-    public function comments()
+    // ✅ RELASI KE DESTINATION
+    public function destination()
     {
-        return $this->hasMany(Comment::class);
+        return $this->belongsTo(Destination::class);
     }
 }

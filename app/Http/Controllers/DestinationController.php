@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Destination;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DestinationController extends Controller
 {
@@ -12,7 +13,7 @@ class DestinationController extends Controller
      */
     public function index()
     {
-        $destinations = Destination::all();
+        $destinations = Destination::latest()->get();
         return view('destinations.index', compact('destinations'));
     }
 
@@ -27,33 +28,35 @@ class DestinationController extends Controller
     /**
      * STORE - Save Data
      */
-   public function store(Request $request)
-{
-    $request->validate([
-        'name' => 'required',
-        'location' => 'required',
-        'description' => 'required',
-        'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
-    ]);
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'location' => 'required|string|max:255',
+            'description' => 'required|string',
+            'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+        ]);
 
-    $imagePath = $request->file('image')->store('destinations', 'public');
+        $imagePath = $request->file('image')->store('destinations', 'public');
 
-    Destination::create([
-        'name' => $request->name,
-        'location' => $request->location,
-        'description' => $request->description,
-        'image' => $imagePath,
-    ]);
+        Destination::create([
+            'name' => $request->name,
+            'location' => $request->location,
+            'description' => $request->description,
+            'image' => $imagePath,
+        ]);
 
-    return redirect()->route('destinations.index')
-        ->with('success', 'Destinasi berhasil ditambahkan');
-}
+        return redirect()
+            ->route('destinations.index')
+            ->with('success', 'Destinasi berhasil ditambahkan');
+    }
 
     /**
-     * READ - Detail
+     * READ - Detail + Komentar
      */
     public function show(Destination $destination)
     {
+        $destination->load('comments'); // ✅ PENTING
         return view('destinations.show', compact('destination'));
     }
 
@@ -70,21 +73,29 @@ class DestinationController extends Controller
      */
     public function update(Request $request, Destination $destination)
     {
-        // ✅ VALIDASI
         $request->validate([
             'name' => 'required|string|max:255',
             'location' => 'required|string|max:255',
             'description' => 'required|string',
-            'image' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        // ✅ UPDATE DATA
-        $destination->update([
-            'name' => $request->name,
-            'location' => $request->location,
-            'description' => $request->description,
-            'image' => $request->image,
-        ]);
+        // ✅ UPDATE DATA DASAR
+        $data = $request->only('name', 'location', 'description');
+
+        // ✅ JIKA ADA IMAGE BARU
+        if ($request->hasFile('image')) {
+
+            // hapus gambar lama
+            if ($destination->image) {
+                Storage::disk('public')->delete($destination->image);
+            }
+
+            $data['image'] = $request->file('image')
+                                      ->store('destinations', 'public');
+        }
+
+        $destination->update($data);
 
         return redirect()
             ->route('destinations.index')
@@ -96,6 +107,10 @@ class DestinationController extends Controller
      */
     public function destroy(Destination $destination)
     {
+        if ($destination->image) {
+            Storage::disk('public')->delete($destination->image);
+        }
+
         $destination->delete();
 
         return redirect()
