@@ -4,7 +4,7 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h3 class="fw-bold">Data Destinasi</h3>
     <a href="{{ route('destinations.create') }}" class="btn btn-primary">
-        + Tambah Destinasi
+        + Tambah Destinasii
     </a>
 </div>
 
