@@ -11,6 +11,7 @@
     <style>
         body {
             background-color: #f8f9fa;
+            padding-top: 70px; /* agar konten tidak tertutup navbar */
         }
 
         /* Navbar */
@@ -34,27 +35,31 @@
             text-shadow: 0 2px 6px rgba(0,0,0,0.6);
         }
 
-        /* Card image fix */
+        /* Card */
         .card-img-top {
             object-fit: cover;
         }
 
         .card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-}
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
 
-
+        /* Footer */
+        footer {
+            background-color: #ffffff;
+            border-top: 1px solid #dee2e6;
+        }
     </style>
 </head>
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
     <div class="container">
         <a class="navbar-brand fw-bold" href="{{ route('home') }}">
             EXPLORE <span class="text-primary">NTB</span>
@@ -88,6 +93,18 @@
 
 <!-- CONTENT -->
 @yield('content')
+
+<!-- FOOTER -->
+<footer class="mt-5 py-4">
+    <div class="container text-center">
+        <p class="mb-1 fw-semibold">
+            © {{ date('Y') }} Explore NTB
+        </p>
+        <small class="text-muted">
+            Jelajahi keindahan Nusa Tenggara Barat
+        </small>
+    </div>
+</footer>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
