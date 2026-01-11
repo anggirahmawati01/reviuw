@@ -33,10 +33,10 @@
 
     <!-- Overlay Kotak Putih Transparan -->
     <div class="position-absolute top-50 start-50 translate-middle w-75 text-center"
-         style="background: rgba(255,255,255,0.85); padding: 40px 30px; border-radius: 15px;">
+         style="background: rgba(255,255,255,0.55); padding: 30px 30px; border-radius: 15px;">
         <h1 class="fw-bold display-4 text-dark">Explore NTB</h1>
         <p class="lead text-dark mt-3">
-            Jelajahi keindahan alam, budaya, dan kuliner Nusa Tenggara Barat.
+            Jelajahi keindahan alam Nusa Tenggara Barat.
         </p>
         <a href="{{ route('destinations.index') }}" class="btn btn-primary btn-lg mt-3 px-4">
             Lihat Destinasi
