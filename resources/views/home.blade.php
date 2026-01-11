@@ -139,7 +139,7 @@
                     <p class="text-muted small mt-2">
                         Rumah Adat Yang Ada Di NTB.
                     </p>
-                    <a href="{{ route('kategori.detail', 'hutan') }}"
+                    <a href="{{ route('kategori.detail', 'rumah_adat') }}"
                        class="btn btn-outline-primary btn-sm">
                         Detail
                     </a>
@@ -157,7 +157,7 @@
                     <p class="text-muted small mt-2">
                         Wisata Buatan Yang Ada Di NTB.
                     </p>
-                    <a href="{{ route('kategori.detail', 'pulau') }}"
+                    <a href="{{ route('kategori.detail', 'wisata_buatan') }}"
                        class="btn btn-outline-primary btn-sm">
                         Detail
                     </a>
