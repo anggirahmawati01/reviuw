@@ -8,10 +8,13 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
     <style>
         body {
             background-color: #f8f9fa;
-            padding-top: 70px;
+            padding-top: 70px; /* supaya konten tidak tertutup navbar */
         }
 
         /* Navbar */
@@ -20,18 +23,18 @@
             color: #0d6efd !important;
         }
 
-        /* Card */
-        .card-img-top {
-            object-fit: cover;
-        }
-
+        /* Card Hover Effect */
         .card {
-            transition: transform .3s ease, box-shadow .3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 12px 25px rgba(0,0,0,.15);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+
+        .card-img-top {
+            object-fit: cover;
         }
 
         /* Pagination */
@@ -47,6 +50,29 @@
 
         .page-item.active .page-link {
             background-color: #0d6efd;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #ddd;
+            padding-top: 50px;
+            padding-bottom: 30px;
+        }
+        footer a {
+            color: #ddd;
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: #0d6efd;
+            text-decoration: underline;
+        }
+
+        /* Hero Overlay */
+        .hero-overlay {
+            background: rgba(255,255,255,0.65);
+            border-radius: 15px;
+            padding: 30px;
         }
     </style>
 </head>
@@ -66,12 +92,14 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}"
-                       href="{{ route('home') }}">Home</a>
+                    <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">
+                        Home
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('destinations.*') ? 'active' : '' }}"
-                       href="{{ route('destinations.index') }}">Destinations</a>
+                    <a class="nav-link {{ request()->routeIs('destinations.*') ? 'active' : '' }}" href="{{ route('destinations.index') }}">
+                        Destinations
+                    </a>
                 </li>
             </ul>
         </div>
@@ -81,36 +109,36 @@
 <!-- CONTENT -->
 @yield('content')
 
-<!-- FOOTER PROFESIONAL -->
-<footer class="mt-5 pt-5 pb-4 bg-dark text-light">
+<!-- FOOTER -->
+<footer>
     <div class="container">
-        <div class="row">
+        <div class="row mb-4">
 
-            <!-- Tentang -->
+            <!-- Tentang Explore NTB -->
             <div class="col-md-4 mb-4">
-                <h5 class="fw-bold mb-3">Explore NTB</h5>
+                <h5 class="fw-bold text-white mb-3">Explore NTB</h5>
                 <p class="small text-light-50">
-                    Jelajahi keindahan alam  Nusa Tenggara Barat. Nikmati pengalaman wisata yang tak terlupakan!
+                    Jelajahi keindahan alam, budaya, dan kuliner Nusa Tenggara Barat. Nikmati pengalaman wisata tak terlupakan!
                 </p>
             </div>
 
             <!-- Navigasi -->
             <div class="col-md-4 mb-4">
-                <h5 class="fw-bold mb-3">Navigasi</h5>
+                <h5 class="fw-bold text-white mb-3">Navigasi</h5>
                 <ul class="list-unstyled">
-                    <li><a href="{{ route('home') }}" class="text-light text-decoration-none small d-block mb-2">Home</a></li>
-                    <li><a href="{{ route('destinations.index') }}" class="text-light text-decoration-none small d-block mb-2">Destinations</a></li>
+                    <li><a href="{{ route('home') }}" class="small d-block mb-2">Home</a></li>
+                    <li><a href="{{ route('destinations.index') }}" class="small d-block mb-2">Destinations</a></li>
                 </ul>
             </div>
 
             <!-- Sosial Media -->
             <div class="col-md-4 mb-4">
-                <h5 class="fw-bold mb-3">Ikuti Kami</h5>
+                <h5 class="fw-bold text-white mb-3">Ikuti Kami</h5>
                 <div class="d-flex gap-3">
-                    <a href="#" class="text-light fs-5"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="text-light fs-5"><i class="bi bi-twitter"></i></a>
-                    <a href="#" class="text-light fs-5"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="text-light fs-5"><i class="bi bi-youtube"></i></a>
+                    <a href="#" class="fs-5"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="fs-5"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="fs-5"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="fs-5"><i class="bi bi-youtube"></i></a>
                 </div>
             </div>
 
@@ -124,8 +152,8 @@
     </div>
 </footer>
 
-<!-- Bootstrap Icons CDN untuk sosial media -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

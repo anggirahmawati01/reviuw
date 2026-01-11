@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- HERO CAROUSEL -->
-<div id="homeCarousel" class="carousel slide position-relative" data-bs-ride="carousel">
-    <!-- Carousel Indicators -->
+<!-- Carousel Indicators -->
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
         <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="1"></button>
@@ -25,15 +23,17 @@
 
     <!-- Carousel Controls -->
     <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
     </button>
 
     <!-- Overlay Kotak Putih Transparan -->
     <div class="position-absolute top-50 start-50 translate-middle w-75 text-center"
-         style="background: rgba(255,255,255,0.55); padding: 30px 30px; border-radius: 15px;">
+         style="background: rgba(255,255,255,0.55); padding: 40px 30px; border-radius: 15px;">
         <h1 class="fw-bold display-4 text-dark">Explore NTB</h1>
         <p class="lead text-dark mt-3">
             Jelajahi keindahan alam Nusa Tenggara Barat.
