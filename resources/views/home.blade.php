@@ -66,17 +66,15 @@
 
 <!-- INFO CARD -->
 <div class="container my-5">
-    <div class="row g-4">
+    <div class="row g-4 justify-content-center">
 
         <!-- Pantai -->
-        <div class="col-md-4">
+        <div class="col-lg-4 col-md-6">
             <div class="card h-100 shadow-sm">
                 <img src="{{ asset('images/2.jpg') }}" class="card-img-top" style="height:220px; object-fit:cover;">
                 <div class="card-body text-center">
                     <h5 class="fw-bold">Pantai</h5>
-                    <p class="text-muted mt-2">
-                        Pantai eksotis dengan panorama terbaik di NTB.
-                    </p>
+                    <p class="text-muted mt-2">Pantai eksotis dengan panorama terbaik di NTB.</p>
                     <a href="{{ route('kategori.detail', 'pantai') }}" class="btn btn-outline-primary mt-2">
                         Detail
                     </a>
@@ -85,14 +83,12 @@
         </div>
 
         <!-- Gunung -->
-        <div class="col-md-4">
+        <div class="col-lg-4 col-md-6">
             <div class="card h-100 shadow-sm">
                 <img src="{{ asset('images/3.jpg') }}" class="card-img-top" style="height:220px; object-fit:cover;">
                 <div class="card-body text-center">
                     <h5 class="fw-bold">Gunung</h5>
-                    <p class="text-muted mt-2">
-                        Gunung tercantik dan menantang di NTB.
-                    </p>
+                    <p class="text-muted mt-2">Gunung tercantik dan menantang di NTB.</p>
                     <a href="{{ route('kategori.detail', 'gunung') }}" class="btn btn-outline-primary mt-2">
                         Detail
                     </a>
@@ -101,15 +97,41 @@
         </div>
 
         <!-- Air Terjun -->
-        <div class="col-md-4">
+        <div class="col-lg-4 col-md-6">
             <div class="card h-100 shadow-sm">
                 <img src="{{ asset('images/1.jpg') }}" class="card-img-top" style="height:220px; object-fit:cover;">
                 <div class="card-body text-center">
                     <h5 class="fw-bold">Air Terjun</h5>
-                    <p class="text-muted mt-2">
-                        Air terjun alami dengan suasana sejuk di NTB.
-                    </p>
+                    <p class="text-muted mt-2">Air terjun alami dengan suasana sejuk di NTB.</p>
                     <a href="{{ route('kategori.detail', 'air-terjun') }}" class="btn btn-outline-primary mt-2">
+                        Detail
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hutan -->
+        <div class="col-lg-4 col-md-6">
+            <div class="card h-100 shadow-sm">
+                <img src="{{ asset('images/5.jpg') }}" class="card-img-top" style="height:220px; object-fit:cover;">
+                <div class="card-body text-center">
+                    <h5 class="fw-bold">Rumah Adat</h5>
+                    <p class="text-muted mt-2">Hutan tropis dengan keanekaragaman hayati NTB.</p>
+                    <a href="{{ route('kategori.detail', 'hutan') }}" class="btn btn-outline-primary mt-2">
+                        Detail
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pulau -->
+        <div class="col-lg-4 col-md-6">
+            <div class="card h-100 shadow-sm">
+                <img src="{{ asset('images/5.jpg') }}" class="card-img-top" style="height:220px; object-fit:cover;">
+                <div class="card-body text-center">
+                    <h5 class="fw-bold">Wisata Buatan</h5>
+                    <p class="text-muted mt-2">Pulau-pulau indah dengan laut jernih di NTB.</p>
+                    <a href="{{ route('kategori.detail', 'pulau') }}" class="btn btn-outline-primary mt-2">
                         Detail
                     </a>
                 </div>
