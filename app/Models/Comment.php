@@ -12,10 +12,9 @@ class Comment extends Model
     protected $fillable = [
         'destination_id',
         'name',
-        'comment',
+        'message',
     ];
 
-    // ✅ RELASI KE DESTINATION
     public function destination()
     {
         return $this->belongsTo(Destination::class);

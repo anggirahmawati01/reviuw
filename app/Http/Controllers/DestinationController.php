@@ -10,10 +10,11 @@ class DestinationController extends Controller
 {
     /**
      * READ - List Destinations
+     * 🔒 FIX: selalu 8 data (4 ke samping × 2 ke bawah)
      */
     public function index()
     {
-        $destinations = Destination::latest()->get();
+        $destinations = Destination::latest()->paginate(8);
         return view('destinations.index', compact('destinations'));
     }
 
@@ -56,7 +57,7 @@ class DestinationController extends Controller
      */
     public function show(Destination $destination)
     {
-        $destination->load('comments'); // ✅ PENTING
+        $destination->load('comments');
         return view('destinations.show', compact('destination'));
     }
 
@@ -80,13 +81,10 @@ class DestinationController extends Controller
             'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        // ✅ UPDATE DATA DASAR
         $data = $request->only('name', 'location', 'description');
 
-        // ✅ JIKA ADA IMAGE BARU
         if ($request->hasFile('image')) {
 
-            // hapus gambar lama
             if ($destination->image) {
                 Storage::disk('public')->delete($destination->image);
             }

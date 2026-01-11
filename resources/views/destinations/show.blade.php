@@ -3,63 +3,77 @@
 @section('content')
 <div class="container">
 
-    <div class="row g-4">
-        @foreach ($destinations as $destination)
-        <div class="col-lg-3 col-md-6 col-sm-12">
-            <div class="card h-100 shadow-sm border-0">
-
-                <!-- IMAGE -->
+    <!-- HEADER DESTINASI -->
+    <div class="row align-items-center mb-5">
+        <div class="col-lg-6 mb-3 mb-lg-0">
+            <div class="position-relative">
                 <img src="{{ asset('storage/' . $destination->image) }}"
-                     class="card-img-top"
-                     style="height: 180px; object-fit: cover;">
-
-                <!-- BODY -->
-                <div class="card-body">
-                    <h6 class="fw-bold mb-1">{{ $destination->name }}</h6>
-                    <small class="text-warning d-block">
-                        {{ $destination->location }}
-                    </small>
-
-                    <p class="small text-muted mt-2 mb-0">
-                        {{ Str::limit($destination->description, 70) }}
-                    </p>
-                </div>
-
-                <!-- ACTION BUTTONS (HORIZONTAL) -->
-                <div class="card-footer bg-white border-0 pt-0">
-                    <div class="d-flex gap-2">
-                        <a href="{{ route('destinations.show', $destination->id) }}"
-                           class="btn btn-outline-primary btn-sm w-100">
-                            View
-                        </a>
-
-                        <a href="{{ route('destinations.edit', $destination->id) }}"
-                           class="btn btn-outline-warning btn-sm w-100">
-                            Edit
-                        </a>
-
-                        <form action="{{ route('destinations.destroy', $destination->id) }}"
-                              method="POST" class="w-100">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit"
-                                    class="btn btn-outline-danger btn-sm w-100"
-                                    onclick="return confirm('Yakin hapus destinasi ini?')">
-                                Hapus
-                            </button>
-                        </form>
-                    </div>
-                </div>
-
+                     class="img-fluid rounded-4 shadow w-100"
+                     style="max-height:420px; object-fit:cover;">
             </div>
         </div>
-        @endforeach
+
+        <div class="col-lg-6">
+            <span class="badge bg-warning text-dark mb-2">
+                {{ $destination->location }}
+            </span>
+
+            <h2 class="fw-bold mt-2">
+                {{ $destination->name }}
+            </h2>
+
+            <p class="text-muted mt-3" style="line-height:1.7">
+                {{ $destination->description }}
+            </p>
+
+            <a href="{{ route('destinations.index') }}"
+               class="btn btn-outline-secondary btn-sm mt-2">
+                ← Kembali ke Destinasi
+            </a>
+        </div>
     </div>
 
-    {{-- OPTIONAL: Pagination agar tetap 4 × 2 --}}
-    {{-- <div class="mt-4 d-flex justify-content-center">
-        {{ $destinations->links() }}
-    </div> --}}
+    <!-- KOMENTAR -->
+    <div class="row">
+        <div class="col-lg-8">
+
+            <h5 class="fw-bold mb-4">
+                💬 Komentar Pengunjung
+            </h5>
+
+            @forelse ($destination->comments as $comment)
+                <div class="card mb-3 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-2">
+                            <div class="bg-primary text-white rounded-circle d-flex
+                                        align-items-center justify-content-center"
+                                 style="width:38px; height:38px;">
+                                {{ strtoupper(substr($comment->name, 0, 1)) }}
+                            </div>
+
+                            <div class="ms-3">
+                                <h6 class="mb-0 fw-semibold">
+                                    {{ $comment->name }}
+                                </h6>
+                                <small class="text-muted">
+                                    Pengunjung
+                                </small>
+                            </div>
+                        </div>
+
+                        <p class="mb-0 text-muted">
+                            {{ $comment->message }}
+                        </p>
+                    </div>
+                </div>
+            @empty
+                <div class="alert alert-light border text-muted">
+                    Belum ada komentar untuk destinasi ini.
+                </div>
+            @endforelse
+
+        </div>
+    </div>
 
 </div>
 @endsection

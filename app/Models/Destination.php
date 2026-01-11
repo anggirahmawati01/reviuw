@@ -16,7 +16,7 @@ class Destination extends Model
         'image',
     ];
 
-    // ✅ RELASI KE COMMENT
+    // ✅ TAMBAHKAN RELASI INI
     public function comments()
     {
         return $this->hasMany(Comment::class);
