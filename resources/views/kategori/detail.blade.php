@@ -31,21 +31,23 @@
             'icon'  => '💧',
             'nuansa' => 'Sejuk & Alami'
         ],
-        'hutan' => [
+        'rumah-adat' => [
             'title' => 'Rumah Adat',
             'image' => 'images/5.jpg',
-            'desc'  => 'Hutan di Nusa Tenggara Barat menyimpan keindahan alam yang asri
-                        dengan pepohonan tropis, udara segar, serta keanekaragaman hayati.
-                        Cocok untuk ekowisata dan wisata edukasi.',
-            'icon'  => '🌿',
-            'nuansa' => 'Ekowisata'
+            'desc'  => 'Rumah adat adalah bangunan tradisional khas suatu daerah di Indonesia 
+                        yang mencerminkan budaya, adat istiadat, serta nilai-nilai kehidupan masyarakat setempat. 
+                        Setiap rumah adat memiliki bentuk, fungsi, dan filosofi yang berbeda-beda sesuai \
+                        dengan kondisi alam dan kepercayaan daerahnya.',
+            'icon'  => '🛖',
+            'nuansa' => 'Ekonik'
         ],
-        'pulau' => [
+        'wisata-buatan' => [
             'title' => 'Wisata Buatan',
             'image' => 'images/4.jpg',
-            'desc'  => 'NTB memiliki banyak pulau indah dengan laut biru jernih, pasir putih,
-                        dan terumbu karang yang menakjubkan. Sangat cocok untuk snorkeling,
-                        diving, dan wisata bahari.',
+            'desc'  => 'Wisata buatan adalah tempat wisata yang sengaja dibuat oleh manusia 
+                        untuk tujuan rekreasi dan hiburan. Tempat ini dirancang dengan berbagai fasilitas menarik seperti taman bermain, 
+                        wahana permainan, kolam renang, atau spot foto yang unik. Wisata buatan memberikan pengalaman liburan yang menyenangkan,
+                        nyaman, dan cocok dikunjungi oleh berbagai kalangan.',
             'icon'  => '🏝️',
             'nuansa' => 'Bahari & Eksotis'
         ],

@@ -135,9 +135,9 @@
                 <img src="{{ asset('images/5.jpg') }}" class="card-img-top"
                      style="height:200px; object-fit:cover;">
                 <div class="card-body text-center">
-                    <h6 class="fw-bold">Hutan</h6>
+                    <h6 class="fw-bold">Rumah Adat</h6>
                     <p class="text-muted small mt-2">
-                        Hutan tropis yang asri dan alami.
+                        Rumah Adat Yang Ada Di NTB.
                     </p>
                     <a href="{{ route('kategori.detail', 'hutan') }}"
                        class="btn btn-outline-primary btn-sm">
@@ -153,9 +153,9 @@
                 <img src="{{ asset('images/4.jpg') }}" class="card-img-top"
                      style="height:200px; object-fit:cover;">
                 <div class="card-body text-center">
-                    <h6 class="fw-bold">Pulau</h6>
+                    <h6 class="fw-bold">Wisata Buatan</h6>
                     <p class="text-muted small mt-2">
-                        Pulau indah dengan laut jernih.
+                        Wisata Buatan Yang Ada Di NTB.
                     </p>
                     <a href="{{ route('kategori.detail', 'pulau') }}"
                        class="btn btn-outline-primary btn-sm">
