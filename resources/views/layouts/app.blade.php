@@ -90,7 +90,7 @@
             <div class="col-md-4 mb-4">
                 <h5 class="fw-bold mb-3">Explore NTB</h5>
                 <p class="small text-light-50">
-                    Jelajahi keindahan alam, budaya, dan kuliner Nusa Tenggara Barat. Nikmati pengalaman wisata yang tak terlupakan!
+                    Jelajahi keindahan alam  Nusa Tenggara Barat. Nikmati pengalaman wisata yang tak terlupakan!
                 </p>
             </div>
 
@@ -100,8 +100,6 @@
                 <ul class="list-unstyled">
                     <li><a href="{{ route('home') }}" class="text-light text-decoration-none small d-block mb-2">Home</a></li>
                     <li><a href="{{ route('destinations.index') }}" class="text-light text-decoration-none small d-block mb-2">Destinations</a></li>
-                    <li><a href="#" class="text-light text-decoration-none small d-block mb-2">Tentang Kami</a></li>
-                    <li><a href="#" class="text-light text-decoration-none small d-block mb-2">Kontak</a></li>
                 </ul>
             </div>
 
