@@ -118,7 +118,7 @@
             <div class="col-md-4 mb-4">
                 <h5 class="fw-bold text-white mb-3">Explore NTB</h5>
                 <p class="small text-light-50">
-                    Jelajahi keindahan alam, budaya, dan kuliner Nusa Tenggara Barat. Nikmati pengalaman wisata tak terlupakan!
+                    Jelajahi keindahan alam Nusa Tenggara Barat. Nikmati pengalaman wisata tak terlupakan!
                 </p>
             </div>
 
