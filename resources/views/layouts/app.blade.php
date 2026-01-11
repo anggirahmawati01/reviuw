@@ -81,14 +81,53 @@
 <!-- CONTENT -->
 @yield('content')
 
-<!-- FOOTER -->
-<footer class="mt-5 py-4 bg-white border-top">
-    <div class="container text-center">
-        <p class="mb-1 fw-semibold">© {{ date('Y') }} Explore NTB</p>
-        <small class="text-muted">Jelajahi keindahan Nusa Tenggara Barat</small>
+<!-- FOOTER PROFESIONAL -->
+<footer class="mt-5 pt-5 pb-4 bg-dark text-light">
+    <div class="container">
+        <div class="row">
+
+            <!-- Tentang -->
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold mb-3">Explore NTB</h5>
+                <p class="small text-light-50">
+                    Jelajahi keindahan alam, budaya, dan kuliner Nusa Tenggara Barat. Nikmati pengalaman wisata yang tak terlupakan!
+                </p>
+            </div>
+
+            <!-- Navigasi -->
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold mb-3">Navigasi</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{{ route('home') }}" class="text-light text-decoration-none small d-block mb-2">Home</a></li>
+                    <li><a href="{{ route('destinations.index') }}" class="text-light text-decoration-none small d-block mb-2">Destinations</a></li>
+                    <li><a href="#" class="text-light text-decoration-none small d-block mb-2">Tentang Kami</a></li>
+                    <li><a href="#" class="text-light text-decoration-none small d-block mb-2">Kontak</a></li>
+                </ul>
+            </div>
+
+            <!-- Sosial Media -->
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold mb-3">Ikuti Kami</h5>
+                <div class="d-flex gap-3">
+                    <a href="#" class="text-light fs-5"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-light fs-5"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="text-light fs-5"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-light fs-5"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+        <hr class="bg-secondary">
+
+        <div class="text-center small">
+            &copy; {{ date('Y') }} Explore NTB. All rights reserved.
+        </div>
     </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap Icons CDN untuk sosial media -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
 </body>
 </html>
