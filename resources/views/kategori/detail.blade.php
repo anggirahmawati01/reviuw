@@ -30,7 +30,7 @@
             'icon'  => '⛰️',
             'nuansa' => 'Petualangan & Alam'
         ],
-        'air-terjun' => [
+        'air_terjun' => [
             'title' => 'Wisata Air Terjun di NTB',
             'image' => 'images/1.jpg',
             'desc'  => 'Air terjun di NTB menawarkan suasana sejuk dan alami, tersembunyi
@@ -39,7 +39,7 @@
             'icon'  => '💧',
             'nuansa' => 'Sejuk & Alami'
         ],
-        'rumah-adat' => [
+        'rumah_adat' => [
             'title' => 'Rumah Adat NTB',
             'image' => 'images/5.jpg',
             'desc'  => 'Rumah adat merupakan warisan budaya yang mencerminkan filosofi hidup,
@@ -143,5 +143,5 @@
     </div>
 </div>
 
-@endif
+@endif  
 @endsection
