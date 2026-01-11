@@ -6,7 +6,7 @@
 <div id="homeCarousel"
      class="carousel slide position-relative"
      data-bs-ride="carousel"
-     data-bs-interval="1500">
+     data-bs-interval="2500">
 
     <!-- Indicators -->
     <div class="carousel-indicators">
@@ -15,14 +15,14 @@
         <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="2"></button>
     </div>
 
-    <!-- Slides (CLICKABLE) -->
+    <!-- Slides -->
     <div class="carousel-inner">
 
         <div class="carousel-item active">
             <a href="{{ route('destinations.index') }}">
                 <img src="{{ asset('images/bg1.jpg') }}"
                      class="d-block w-100"
-                     style="height:80vh; object-fit:cover; cursor:pointer;">
+                     style="height:80vh; object-fit:cover;">
             </a>
         </div>
 
@@ -30,7 +30,7 @@
             <a href="{{ route('kategori.detail', 'pantai') }}">
                 <img src="{{ asset('images/bg2.jpg') }}"
                      class="d-block w-100"
-                     style="height:80vh; object-fit:cover; cursor:pointer;">
+                     style="height:80vh; object-fit:cover;">
             </a>
         </div>
 
@@ -38,7 +38,7 @@
             <a href="{{ route('kategori.detail', 'gunung') }}">
                 <img src="{{ asset('images/bg3.jpg') }}"
                      class="d-block w-100"
-                     style="height:80vh; object-fit:cover; cursor:pointer;">
+                     style="height:80vh; object-fit:cover;">
             </a>
         </div>
 
@@ -52,33 +52,33 @@
         <span class="carousel-control-next-icon"></span>
     </button>
 
-    <!-- Overlay -->
-    <div class="position-absolute top-50 start-50 translate-middle w-75 text-center"
-         style="background: rgba(255,255,255,0.6); padding:40px; border-radius:18px;">
+    <!-- Overlay Text -->
+    <div class="position-absolute top-50 start-50 translate-middle text-center w-75"
+         style="background:rgba(255,255,255,.65); padding:45px; border-radius:22px;">
         <h1 class="fw-bold display-4 text-dark">Explore NTB</h1>
         <p class="lead text-dark mt-3">
-            Jelajahi keindahan alam Nusa Tenggara Barat
+            Jelajahi keindahan alam dan budaya Nusa Tenggara Barat
         </p>
         <a href="{{ route('destinations.index') }}"
-           class="btn btn-primary btn-lg mt-3 px-4">
+           class="btn btn-primary btn-lg mt-3 px-4 shadow">
             Lihat Destinasi
         </a>
     </div>
 </div>
 
-<!-- ================= INFO CARD ================= -->
+<!-- ================= KATEGORI ================= -->
 <div class="container my-5">
 
-    <h3 class="fw-bold text-center mb-4">
+    <h3 class="fw-bold text-center mb-5">
         Kategori Wisata Unggulan
     </h3>
 
-    <div class="d-flex justify-content-between gap-3">
+    <div class="row g-4">
 
         <!-- Pantai -->
-        <div style="width:20%">
-            <div class="card h-100 shadow-sm">
-                <img src="{{ asset('images/2.jpg') }}" class="card-img-top"
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="card h-100 shadow-sm border-0 rounded-4">
+                <img src="{{ asset('images/2.jpg') }}" class="card-img-top rounded-top-4"
                      style="height:200px; object-fit:cover;">
                 <div class="card-body text-center">
                     <h6 class="fw-bold">Pantai</h6>
@@ -94,9 +94,9 @@
         </div>
 
         <!-- Gunung -->
-        <div style="width:20%">
-            <div class="card h-100 shadow-sm">
-                <img src="{{ asset('images/3.jpg') }}" class="card-img-top"
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="card h-100 shadow-sm border-0 rounded-4">
+                <img src="{{ asset('images/3.jpg') }}" class="card-img-top rounded-top-4"
                      style="height:200px; object-fit:cover;">
                 <div class="card-body text-center">
                     <h6 class="fw-bold">Gunung</h6>
@@ -112,9 +112,9 @@
         </div>
 
         <!-- Air Terjun -->
-        <div style="width:20%">
-            <div class="card h-100 shadow-sm">
-                <img src="{{ asset('images/1.jpg') }}" class="card-img-top"
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="card h-100 shadow-sm border-0 rounded-4">
+                <img src="{{ asset('images/1.jpg') }}" class="card-img-top rounded-top-4"
                      style="height:200px; object-fit:cover;">
                 <div class="card-body text-center">
                     <h6 class="fw-bold">Air Terjun</h6>
@@ -129,17 +129,17 @@
             </div>
         </div>
 
-        <!-- Hutan -->
-        <div style="width:20%">
-            <div class="card h-100 shadow-sm">
-                <img src="{{ asset('images/5.jpg') }}" class="card-img-top"
+        <!-- Rumah Adat -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="card h-100 shadow-sm border-0 rounded-4">
+                <img src="{{ asset('images/5.jpg') }}" class="card-img-top rounded-top-4"
                      style="height:200px; object-fit:cover;">
                 <div class="card-body text-center">
                     <h6 class="fw-bold">Rumah Adat</h6>
                     <p class="text-muted small mt-2">
-                        Rumah Adat Yang Ada Di NTB.
+                        Warisan budaya khas Nusa Tenggara Barat.
                     </p>
-                    <a href="{{ route('kategori.detail', 'rumah_adat') }}"
+                    <a href="{{ route('kategori.detail', 'rumah-adat') }}"
                        class="btn btn-outline-primary btn-sm">
                         Detail
                     </a>
@@ -147,17 +147,17 @@
             </div>
         </div>
 
-        <!-- Pulau -->
-        <div style="width:20%">
-            <div class="card h-100 shadow-sm">
-                <img src="{{ asset('images/4.jpg') }}" class="card-img-top"
+        <!-- Wisata Buatan -->
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="card h-100 shadow-sm border-0 rounded-4">
+                <img src="{{ asset('images/4.jpg') }}" class="card-img-top rounded-top-4"
                      style="height:200px; object-fit:cover;">
                 <div class="card-body text-center">
                     <h6 class="fw-bold">Wisata Buatan</h6>
                     <p class="text-muted small mt-2">
-                        Wisata Buatan Yang Ada Di NTB.
+                        Taman wisata & spot rekreasi modern.
                     </p>
-                    <a href="{{ route('kategori.detail', 'wisata_buatan') }}"
+                    <a href="{{ route('kategori.detail', 'wisata-buatan') }}"
                        class="btn btn-outline-primary btn-sm">
                         Detail
                     </a>
