@@ -73,10 +73,10 @@
         Kategori Wisata Unggulan
     </h3>
 
-    <div class="row g-4 flex-nowrap overflow-auto pb-3">
+    <div class="d-flex justify-content-between gap-3">
 
         <!-- Pantai -->
-        <div class="col-lg-2 col-md-4 col-sm-6">
+        <div style="width:20%">
             <div class="card h-100 shadow-sm">
                 <img src="{{ asset('images/2.jpg') }}" class="card-img-top"
                      style="height:200px; object-fit:cover;">
@@ -94,7 +94,7 @@
         </div>
 
         <!-- Gunung -->
-        <div class="col-lg-2 col-md-4 col-sm-6">
+        <div style="width:20%">
             <div class="card h-100 shadow-sm">
                 <img src="{{ asset('images/3.jpg') }}" class="card-img-top"
                      style="height:200px; object-fit:cover;">
@@ -112,7 +112,7 @@
         </div>
 
         <!-- Air Terjun -->
-        <div class="col-lg-2 col-md-4 col-sm-6">
+        <div style="width:20%">
             <div class="card h-100 shadow-sm">
                 <img src="{{ asset('images/1.jpg') }}" class="card-img-top"
                      style="height:200px; object-fit:cover;">
@@ -130,14 +130,14 @@
         </div>
 
         <!-- Hutan -->
-        <div class="col-lg-2 col-md-4 col-sm-6">
+        <div style="width:20%">
             <div class="card h-100 shadow-sm">
                 <img src="{{ asset('images/5.jpg') }}" class="card-img-top"
                      style="height:200px; object-fit:cover;">
                 <div class="card-body text-center">
                     <h6 class="fw-bold">Hutan</h6>
                     <p class="text-muted small mt-2">
-                        Hutan tropis dengan alam yang asri.
+                        Hutan tropis yang asri dan alami.
                     </p>
                     <a href="{{ route('kategori.detail', 'hutan') }}"
                        class="btn btn-outline-primary btn-sm">
@@ -148,14 +148,14 @@
         </div>
 
         <!-- Pulau -->
-        <div class="col-lg-2 col-md-4 col-sm-6">
+        <div style="width:20%">
             <div class="card h-100 shadow-sm">
                 <img src="{{ asset('images/4.jpg') }}" class="card-img-top"
                      style="height:200px; object-fit:cover;">
                 <div class="card-body text-center">
                     <h6 class="fw-bold">Pulau</h6>
                     <p class="text-muted small mt-2">
-                        Pulau-pulau indah dengan laut jernih.
+                        Pulau indah dengan laut jernih.
                     </p>
                     <a href="{{ route('kategori.detail', 'pulau') }}"
                        class="btn btn-outline-primary btn-sm">
