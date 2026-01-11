@@ -2,28 +2,31 @@
 
 @section('content')
 <div class="container">
-    <div class="row g-4">
 
+    <div class="row g-4">
         @foreach ($destinations as $destination)
         <div class="col-lg-3 col-md-6 col-sm-12">
             <div class="card h-100 shadow-sm border-0">
 
-                <img src="{{ asset('images/' . $destination->image) }}"
+                <!-- IMAGE -->
+                <img src="{{ asset('storage/' . $destination->image) }}"
                      class="card-img-top"
-                     height="180"
-                     style="object-fit: cover;">
+                     style="height: 180px; object-fit: cover;">
 
+                <!-- BODY -->
                 <div class="card-body">
                     <h6 class="fw-bold mb-1">{{ $destination->name }}</h6>
-                    <small class="text-warning">{{ $destination->location }}</small>
+                    <small class="text-warning d-block">
+                        {{ $destination->location }}
+                    </small>
 
-                    <p class="small text-muted mt-2">
+                    <p class="small text-muted mt-2 mb-0">
                         {{ Str::limit($destination->description, 70) }}
                     </p>
                 </div>
 
-                <!-- BUTTON HORIZONTAL -->
-                <div class="card-footer bg-white border-0">
+                <!-- ACTION BUTTONS (HORIZONTAL) -->
+                <div class="card-footer bg-white border-0 pt-0">
                     <div class="d-flex gap-2">
                         <a href="{{ route('destinations.show', $destination->id) }}"
                            class="btn btn-outline-primary btn-sm w-100">
@@ -39,9 +42,10 @@
                               method="POST" class="w-100">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-outline-danger btn-sm w-100"
+                            <button type="submit"
+                                    class="btn btn-outline-danger btn-sm w-100"
                                     onclick="return confirm('Yakin hapus destinasi ini?')">
-                                Delete
+                                Hapus
                             </button>
                         </form>
                     </div>
@@ -50,7 +54,12 @@
             </div>
         </div>
         @endforeach
-
     </div>
+
+    {{-- OPTIONAL: Pagination agar tetap 4 × 2 --}}
+    {{-- <div class="mt-4 d-flex justify-content-center">
+        {{ $destinations->links() }}
+    </div> --}}
+
 </div>
 @endsection
