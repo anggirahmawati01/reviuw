@@ -3,13 +3,9 @@
 @section('content')
 <div class="container py-4">
 
-    <!-- HEADER + TAMBAH DESTINASI -->
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <!-- HEADER -->
+    <div class="mb-4">
         <h4 class="fw-bold mb-0">Daftar Destinasi</h4>
-        <a href="{{ route('destinations.create') }}"
-           class="btn btn-primary btn-sm shadow-sm">
-            + Tambah Destinasi
-        </a>
     </div>
 
     <!-- EMPTY STATE -->
@@ -47,26 +43,32 @@
                 <div class="card-footer bg-white border-0 pt-3">
                     <div class="d-flex gap-2">
 
+                        <!-- VIEW (SELALU ADA) -->
                         <a href="{{ route('destinations.show', $destination->id) }}"
                            class="btn btn-outline-primary btn-sm flex-grow-1 d-flex align-items-center justify-content-center gap-1">
                             <i class="bi bi-eye"></i> View
                         </a>
 
-                        <a href="{{ route('destinations.edit', $destination->id) }}"
-                           class="btn btn-outline-warning btn-sm flex-grow-1 d-flex align-items-center justify-content-center gap-1">
-                            <i class="bi bi-pencil-square"></i> Edit
-                        </a>
+                        <!-- MANAGE MODE -->
+                        @if(request()->get('manage') == 1)
 
-                        <form action="{{ route('destinations.destroy', $destination->id) }}"
-                              method="POST" class="flex-grow-1">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit"
-                                    class="btn btn-outline-danger btn-sm w-100 d-flex align-items-center justify-content-center gap-1"
-                                    onclick="return confirm('Yakin hapus destinasi ini?')">
-                                <i class="bi bi-trash"></i> Hapus
-                            </button>
-                        </form>
+                            <a href="{{ route('destinations.edit', $destination->id) }}"
+                               class="btn btn-outline-warning btn-sm flex-grow-1 d-flex align-items-center justify-content-center gap-1">
+                                <i class="bi bi-pencil-square"></i> Edit
+                            </a>
+
+                            <form action="{{ route('destinations.destroy', $destination->id) }}"
+                                  method="POST" class="flex-grow-1">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit"
+                                        class="btn btn-outline-danger btn-sm w-100 d-flex align-items-center justify-content-center gap-1"
+                                        onclick="return confirm('Yakin hapus destinasi ini?')">
+                                    <i class="bi bi-trash"></i> Hapus
+                                </button>
+                            </form>
+
+                        @endif
 
                     </div>
                 </div>
@@ -76,7 +78,7 @@
         @endforeach
     </div>
 
-    <!-- PAGINATION (INILAH KUNCI 50+ DATA) -->
+    <!-- PAGINATION -->
     <div class="mt-5 d-flex justify-content-center">
         {{ $destinations->links('vendor.pagination.custom') }}
     </div>
